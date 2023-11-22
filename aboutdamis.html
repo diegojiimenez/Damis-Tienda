@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Damis</title>
+<!--Stylesheet-->
+<link rel="stylesheet" type="text/css" href="style.css">
+<!--Light-slider-css-->
+<link type="text/css" rel="stylesheet" href="css/lightslider.css" /> 
+<!--JQuery------------------------------------------------------->
+<script src="JQuery.js"></script>
+<!--Lightslider-js-->
+<script src="js/lightslider.js"></script>
+<!--Fav-Icon-->
+<link rel="shortcut icon" href="Imagenes/logo.png">
+<script src="https://kit.fontawesome.com/6e97ee2de1.js" crossorigin="anonymous"></script>
+</head>
+<body class="hidden">
+    
+
+<!--Navigation Bar-------------------------------------->
+    <nav>
+<!--Social Link and Phone-------------------------------------->
+        <div class="social-call">
+            <!--Social links-->
+            <div class="social">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.instagram.com/damis_sv/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="phone"></div>
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>  7744-3910</span>
+           
+        </div>
+    
+<!--Menu bar----------------------------------------------->
+    <div class="navigation">
+        <!--Logo-->
+        <a href="#" class="logo">
+            <img src="imagenes/logo2.png" alt="">
+        </a>
+        <!--Menu------------------------------------------->
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <!--Sale-lable-->
+            <li><a href="shop.html">Shop</a>
+                <span class="sale-lable">Sale</span>
+            </li>
+            <li><a href="customize.html">Customize</a></li>
+            <li><a href="#">About Damis</a></li>
+        </ul>
+        <!--Right Menu------------------------------------->
+        <div class="right-menu">
+            <!--Search-->
+            <a href="javascript:void(0);" class="search">
+                <i class="fas fa-search"></i>
+            </a>
+            <!--User-->
+            <a href="javascript:void(0);" class="user">
+                <i class="far fa-user"></i>
+            </a> 
+            <!--Shopping-cart-->
+            <a href="#">
+                <i class="fas fa-shopping-cart">
+                <Number-of-products-in-cart>
+                <span class="num-cart-product">0</span>
+                </i>
+            </a>
+
+        </div>
+    </div>
+    </nav>
+<!--Search-bar---------------------------------------------->
+<div class="search-bar">
+    <div class="search-input">
+        <input type="text" placeholder="Search For Product"/>
+        <a href="javascript:void(0);" class="search-cancel">
+            <i class="fas fa-times"></i>
+        </a>
+    </div>
+</div>
+
+<div class="about-us">
+    <h1>About Damis</h1>
+    <p>Damis empezo como un pasatiempo en cuarentena, todo empieza en Agosto de 2022. Damis empezo como una idea de 
+        mezclar lo mejor de lo elegante con el estilo trippy en la bisuteria. Mezclar "piedras" de colores con cadenas de Oro,
+        salir de lo normal, de lo establecido, esa fue la mision y vision de Damis. Y desde ese 20 de agosto no ha habido 
+        vuelta atras, lo que empezo como un pasatiempo ahora es la marca que busca posicionarse como la mas vendida del pais.</br>
+    </br>Damis Busca romper estereotipos, los accesorios NO TIENEN GENERO. 
+</br></br>Feel Free con Damis
+    </p>
+
+
+</div>
+
+<div class="photo-grid">
+    <img src="Imagenes/grid1.png" alt="Foto 1" class="photo">
+    <img src="Imagenes/grid2.png" alt="Foto 2" class="photo">
+    <img src="Imagenes/grid3.png" alt="Foto 3" class="photo">
+    <img src="Imagenes/grid4.png" alt="Foto 4" class="photo">
+    <img src="Imagenes/grid5.png" alt="Foto 5" class="photo">
+    <img src="Imagenes/grid6.png" alt="Foto 6" class="photo">
+    <img src="Imagenes/grid7.png" alt="Foto 7" class="photo">
+    <img src="Imagenes/grid8.png" alt="Foto 8" class="photo">
+    <img src="Imagenes/grid9.png" alt="Foto 9" class="photo">
+    <img src="Imagenes/grid10.png" alt="Foto 10" class="photo">
+    <img src="Imagenes/grid11.png" alt="Foto 11" class="photo">
+    <img src="Imagenes/grid12.png" alt="Foto 12" class="photo">
+</div>
+
+
+
+<div class="separar"></div>
+
+
+
+
+
+
+
+<!--Footer------------------------>
+<footer>
+    <!--Copyright-->
+    <span class="copyright">
+    Copyright 2022 - Developed & Created by Diego Jimenez 
+    </span>
+    
+    </footer>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--Script------------------------------------------------------->
+    <script type="text/javascript">
+    /*For search bar*/
+    $(document).on('click','.search',function(){
+        $('.search-bar').addClass('search-bar-active')
+    });
+    
+    $(document).on('click','.search-cancel',function(){
+        $('.search-bar').removeClass('search-bar-active')
+    });
+    
+    /*Log-in-sign-up-form-------------------------------*/
+    $(document).on('click','.user, .already-account',function(){
+        $('.form').addClass('login-active').removeClass('sign-up-active')
+    });
+    $(document).on('click','.sign-up-btn',function(){
+        $('.form').addClass('sign-up-active').removeClass('login-active')
+    });
+    
+    
+    $(document).on('click','.form-cancel',function(){
+        $('.form').removeClass('login-active').removeClass('sign-up-active')
+    });
+    
+    /*Full-slider-script*/
+    $(document).ready(function() {
+        $('#adaptive').lightSlider({
+            adaptiveHeight:true,
+            auto:true,
+            item:1,
+            slideMargin:0,
+            loop:true
+        });
+    });
+    /*Feature-slider-----------*/
+    $(document).ready(function() {
+        $('#autoWidth').lightSlider({
+            autoWidth:true,
+            loop:true,
+            onSliderLoad: function() {
+                $('#autoWidth').removeClass('cS-hidden');
+            } 
+        });  
+      });
+      /*For-Fix-menu-when-scroll*/
+      $(window).scroll(function(){
+        if($(document).scrollTop()> 50){
+            $('.navigation').addClass('fix-nav');
+        }
+        else{
+            $('.navigation').removeClass('fix-nav');
+        }
+      });
+      
+      
+        </script>
+    </script>
+    </body>
+    </html>
+    

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+
+        #personalizacion {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        #carrito {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #seccionCarrito {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+    </style>
+    <title>Personalización de Producto</title>
+</head>
+<body>
+
+    <div id="personalizacion">
+        <h2>Personaliza tu Producto</h2>
+
+        <label for="tipoPiedra">Tipo de Piedra:</label>
+        <select id="tipoPiedra">
+            <option value="cristal">Cristal</option>
+            <option value="turquesa">Turquesa</option>
+            <option value="perla">Perla</option>
+        </select>
+
+        <label for="tipoCadena">Tipo de Cadena:</label>
+        <select id="tipoCadena">
+            <option value="oro">Oro</option>
+            <option value="plata">Plata</option>
+            <option value="cuerda">Cuerda</option>
+        </select>
+
+        <label for="tipoDije">Tipo de Dije:</label>
+        <select id="tipoDije">
+            <option value="corazon">Corazón</option>
+            <option value="estrella">Estrella</option>
+            <option value="luna">Luna</option>
+        </select>
+
+        <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+
+        <div id="resultado"></div>
+    </div>
+
+    <div id="carrito" onclick="mostrarCarrito()">0</div>
+
+    <div id="seccionCarrito" style="display: none;">
+        <h2>Carrito de Compras</h2>
+        <ul id="listaCarrito"></ul>
+    </div>
+
+    <script>
+        var contadorCarrito = 0;
+        var productosEnCarrito = [];
+
+        function agregarAlCarrito() {
+            contadorCarrito++;
+            document.getElementById("carrito").innerText = contadorCarrito;
+
+            var tipoPiedra = document.getElementById("tipoPiedra").value;
+            var tipoCadena = document.getElementById("tipoCadena").value;
+            var tipoDije = document.getElementById("tipoDije").value;
+
+            var producto = {
+                tipoPiedra: tipoPiedra,
+                tipoCadena: tipoCadena,
+                tipoDije: tipoDije
+            };
+
+            productosEnCarrito.push(producto);
+        }
+
+        function mostrarCarrito() {
+            var listaCarrito = document.getElementById("listaCarrito");
+            listaCarrito.innerHTML = ""; // Limpiar la lista antes de mostrar los productos
+
+            productosEnCarrito.forEach(function (producto) {
+                var listItem = document.createElement("li");
+                listItem.textContent = `${producto.tipoPiedra} | ${producto.tipoCadena} | ${producto.tipoDije}`;
+                listaCarrito.appendChild(listItem);
+            });
+
+            document.getElementById("seccionCarrito").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
